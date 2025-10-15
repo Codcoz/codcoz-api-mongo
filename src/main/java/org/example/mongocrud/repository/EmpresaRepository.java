@@ -1,4 +1,4 @@
-package org.example.mongocrud.repository.empresa;
+package org.example.mongocrud.repository;
 
 import org.example.mongocrud.model.empresa.Empresa;
 import org.springframework.data.mongodb.repository.MongoRepository;
