@@ -26,4 +26,4 @@ jobs:
         if: success()
         run: |
           # adiciona ?ref=<sha> para forçar deploy do commit atual (opcional)
-          curl -X POST -sS --fail "${{ secrets.RENDER_DEPLOY_HOOK_URL }}?ref=${{ github.sha }}" >/dev/null
+          curl -i -X POST "${{ secrets.RENDER_DEPLOY_HOOK_URL }}?ref=${{ github.sha }}"
