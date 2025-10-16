@@ -10,6 +10,17 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+        
+      - name: Debug Render hook (safe)
+        run: |
+          http_code=$(curl -s -o /tmp/render_resp -w "%{http_code}" -X POST "${{ secrets.RENDER_DEPLOY_HOOK_URL }}" || true)
+          echo "HTTP status: $http_code"
+          echo "Response (primeiros 200 chars):"
+          head -c 200 /tmp/render_resp || true
+          if [ "$http_code" != "200" ] && [ "$http_code" != "201" ] && [ "$http_code" != "202" ]; then
+            echo "Resposta não 2xx — confira a URL guardada no secret."
+            exit 1
+          fi
 
       - name: Trigger Render deploy (deploy hook)
         if: success()
