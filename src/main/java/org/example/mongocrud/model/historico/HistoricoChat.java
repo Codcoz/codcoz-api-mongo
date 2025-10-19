@@ -1,43 +1,22 @@
-package org.example.mongocrud.model;
+package org.example.mongocrud.model.historico;
 
+import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.util.Date;
 import java.util.List;
 
-@Document("testCollection")
+@Data
+@ToString
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Document(collection = "historicoChat")
 public class HistoricoChat {
     @Id
     private String id;
     private String tipo;
     private List<Message> mensagens;
-
-    public HistoricoChat(){}
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }
-
-    public List<Message> getMensagens() {
-        return mensagens;
-    }
-
-    public void setMensagens(List<Message> mensagens) {
-        this.mensagens = mensagens;
-    }
 }
 
 
