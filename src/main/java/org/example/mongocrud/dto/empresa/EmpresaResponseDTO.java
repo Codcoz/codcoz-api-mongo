@@ -15,4 +15,5 @@ public class EmpresaResponseDTO {
     private String id;
     private String nome;
     private String sigla;
+    private String status;
 }
