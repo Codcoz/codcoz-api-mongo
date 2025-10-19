@@ -18,4 +18,5 @@ public class EmpresaRequestDTO {
     private String nome;
     @NotBlank(message = "O campo 'sigla' é obrigatório", groups = OnCreate.class)
     private String sigla;
+    private String status;
 }
