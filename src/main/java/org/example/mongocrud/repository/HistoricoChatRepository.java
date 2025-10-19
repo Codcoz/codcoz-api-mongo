@@ -1,6 +1,6 @@
 package org.example.mongocrud.repository;
 
-import org.example.mongocrud.model.HistoricoChat;
+import org.example.mongocrud.model.historico.HistoricoChat;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
