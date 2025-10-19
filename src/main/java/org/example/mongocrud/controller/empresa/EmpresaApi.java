@@ -15,7 +15,10 @@ import java.util.List;
 
 @Tag(name = "Empresa", description = "Operações sobre a empresa")
 public interface EmpresaApi {
-
+    @Operation(summary = "List all enterprises")
+    @ApiResponses({
+            @ApiResponse(responseCode = "200", description = "All enterprises returned successfully")
+    })
     @GetMapping
     ResponseEntity<List<EmpresaResponseDTO>> getAllEnterprises();
 
