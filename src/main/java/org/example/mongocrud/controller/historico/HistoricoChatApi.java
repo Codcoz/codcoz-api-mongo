@@ -13,7 +13,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
-@Tag(name = "HistoricoChat", description = "Operações sobre o histórico de chat")
+@Tag(name = "HistoricoChat", description = "Chat History's operations")
 public interface HistoricoChatApi {
     @Operation(summary = "Save a new chat history")
     @ApiResponses({

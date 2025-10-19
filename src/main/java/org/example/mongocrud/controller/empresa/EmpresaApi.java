@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Tag(name = "Empresa", description = "Operações sobre a empresa")
+@Tag(name = "Empresa", description = "Enterprise's operations")
 public interface EmpresaApi {
     @Operation(summary = "List all enterprises")
     @ApiResponses({
