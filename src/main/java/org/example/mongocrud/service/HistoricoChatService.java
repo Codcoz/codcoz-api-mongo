@@ -1,4 +1,4 @@
-package org.example.mongocrud.service.historico;
+package org.example.mongocrud.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;

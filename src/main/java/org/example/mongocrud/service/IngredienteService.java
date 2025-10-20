@@ -1,16 +1,10 @@
-package org.example.mongocrud.service.historico;
+package org.example.mongocrud.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
-import org.example.mongocrud.dto.empresa.EmpresaRequestDTO;
-import org.example.mongocrud.dto.historico.HistoricoChatRequestDTO;
-import org.example.mongocrud.dto.historico.HistoricoChatResponseDTO;
 import org.example.mongocrud.dto.ingrediente.IngredienteRequestDTO;
 import org.example.mongocrud.dto.ingrediente.IngredienteResponseDTO;
-import org.example.mongocrud.model.empresa.Empresa;
-import org.example.mongocrud.model.historico.HistoricoChat;
 import org.example.mongocrud.model.ingrediente.Ingrediente;
-import org.example.mongocrud.repository.HistoricoChatRepository;
 import org.example.mongocrud.repository.IngredienteRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;

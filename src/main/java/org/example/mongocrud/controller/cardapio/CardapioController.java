@@ -3,7 +3,7 @@ package org.example.mongocrud.controller.cardapio;
 import lombok.RequiredArgsConstructor;
 import org.example.mongocrud.dto.cardapio.CardapioRequestDTO;
 import org.example.mongocrud.dto.cardapio.CardapioResponseDTO;
-import org.example.mongocrud.service.cardapio.CardapioService;
+import org.example.mongocrud.service.CardapioService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 

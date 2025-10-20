@@ -1,4 +1,4 @@
-package org.example.mongocrud.repository.cardapio;
+package org.example.mongocrud.repository;
 
 import org.example.mongocrud.model.cardapio.Cardapio;
 import org.springframework.data.mongodb.repository.MongoRepository;

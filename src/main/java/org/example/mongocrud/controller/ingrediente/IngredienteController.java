@@ -3,7 +3,7 @@ package org.example.mongocrud.controller.ingrediente;
 import lombok.RequiredArgsConstructor;
 import org.example.mongocrud.dto.ingrediente.IngredienteRequestDTO;
 import org.example.mongocrud.dto.ingrediente.IngredienteResponseDTO;
-import org.example.mongocrud.service.historico.IngredienteService;
+import org.example.mongocrud.service.IngredienteService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

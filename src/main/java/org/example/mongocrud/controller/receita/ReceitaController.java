@@ -3,7 +3,7 @@ package org.example.mongocrud.controller.receita;
 import lombok.RequiredArgsConstructor;
 import org.example.mongocrud.dto.receita.ReceitaRequestDTO;
 import org.example.mongocrud.dto.receita.ReceitaResponseDTO;
-import org.example.mongocrud.service.receita.ReceitaService;
+import org.example.mongocrud.service.ReceitaService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

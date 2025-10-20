@@ -1,11 +1,11 @@
-package org.example.mongocrud.service.cardapio;
+package org.example.mongocrud.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import org.example.mongocrud.dto.cardapio.CardapioRequestDTO;
 import org.example.mongocrud.dto.cardapio.CardapioResponseDTO;
 import org.example.mongocrud.model.cardapio.Cardapio;
-import org.example.mongocrud.repository.cardapio.CardapioRepository;
+import org.example.mongocrud.repository.CardapioRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
