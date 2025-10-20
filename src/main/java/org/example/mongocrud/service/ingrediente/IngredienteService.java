@@ -39,8 +39,8 @@ public class IngredienteService {
 
     @Transactional
     public IngredienteResponseDTO salvarIngrediente(IngredienteRequestDTO request) {
-        Ingrediente chat = objectMapper.convertValue(request, Ingrediente.class);
-        return objectMapper.convertValue(ingredienteRepository.save(chat), IngredienteResponseDTO.class);
+        Ingrediente ingrediente = objectMapper.convertValue(request, Ingrediente.class);
+        return objectMapper.convertValue(ingredienteRepository.save(ingrediente), IngredienteResponseDTO.class);
     }
 
     @Transactional
