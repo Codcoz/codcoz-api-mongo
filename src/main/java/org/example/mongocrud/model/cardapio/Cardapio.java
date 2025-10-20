@@ -1,6 +1,24 @@
-package org.example.mongocrud.model;
+package org.example.mongocrud.model.cardapio;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+import java.time.LocalDateTime;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
+@Document(collection = "cardapios")
 public class Cardapio {
+    private String id;
+    private LocalDateTime dataInicio;
+    private LocalDateTime dataFim;
+    private Integer empresaId;
+    private CardapioSemanal cardapioSemanal;
 }
 
 
