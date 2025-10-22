@@ -1,6 +1,7 @@
-package org.example.mongocrud.service.historico;
+package org.example.mongocrud.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.example.mongocrud.dto.historico.HistoricoChatRequestDTO;
 import org.example.mongocrud.dto.historico.HistoricoChatResponseDTO;
@@ -19,7 +20,7 @@ public class HistoricoChatService {
 
     private HistoricoChat getById(String id) {
         return historicoChatRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Chat não encontrada")); //não to achando a EntityNotFoundException
+                .orElseThrow(() -> new EntityNotFoundException("Chat não encontrada"));
     }
 
     public List<HistoricoChatResponseDTO> listarChats() {

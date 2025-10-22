@@ -3,8 +3,7 @@ package org.example.mongocrud.controller.historico;
 import lombok.RequiredArgsConstructor;
 import org.example.mongocrud.dto.historico.HistoricoChatRequestDTO;
 import org.example.mongocrud.dto.historico.HistoricoChatResponseDTO;
-import org.example.mongocrud.model.historico.HistoricoChat;
-import org.example.mongocrud.service.historico.HistoricoChatService;
+import org.example.mongocrud.service.HistoricoChatService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

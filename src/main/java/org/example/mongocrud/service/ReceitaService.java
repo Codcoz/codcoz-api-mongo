@@ -1,77 +1,48 @@
 package org.example.mongocrud.service;
 
-import org.example.mongocrud.model.HistoricoChat;
-import org.example.mongocrud.model.Message;
-import org.example.mongocrud.model.Receita;
-import org.example.mongocrud.repository.HistoricoChatRepository;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import jakarta.persistence.EntityNotFoundException;
+import lombok.RequiredArgsConstructor;
+import org.example.mongocrud.dto.receita.ReceitaRequestDTO;
+import org.example.mongocrud.dto.receita.ReceitaResponseDTO;
+import org.example.mongocrud.model.receita.Receita;
 import org.example.mongocrud.repository.ReceitaRepository;
-import org.springframework.http.ResponseEntity;
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.transaction.annotation.Transactional;
 
-import java.time.LocalDate;
 import java.util.List;
-import java.util.Optional;
 
+@RequiredArgsConstructor
 @Service
 public class ReceitaService {
-    private ReceitaRepository receitaRepository;
-    public ReceitaService(ReceitaRepository receitaRepository){
-        this.receitaRepository = receitaRepository;
+    private final ReceitaRepository receitaRepository;
+    private final ObjectMapper objectMapper;
+
+    private Receita getById(String id) {
+        return receitaRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("Receita não encontrada"));
     }
 
-    public ResponseEntity<String> ping() {
-        return ResponseEntity.ok("pong-service");
+    @Transactional
+    public ReceitaResponseDTO salvarReceita(ReceitaRequestDTO request) {
+        Receita receita = objectMapper.convertValue(request, Receita.class);
+        return objectMapper.convertValue(receitaRepository.save(receita), ReceitaResponseDTO.class);
     }
 
-    public List<Receita> todos() {
-        List<Receita> all = receitaRepository.findAll();
-        return all;
+    public ReceitaResponseDTO buscarReceita(String id) {
+        return objectMapper.convertValue(getById(id), ReceitaResponseDTO.class);
     }
 
-    public Receita find(String id) {
-        Optional<Receita> receita = receitaRepository.findById(id);
-        return receita.get();
+    public List<ReceitaResponseDTO> listarReceitas() {
+        return receitaRepository.findAll().stream().map(e -> objectMapper.convertValue(e, ReceitaResponseDTO.class)).toList();
     }
 
-//    public Receita inserirReceita(Receita receita) {
-//        Optional<Receita> receitaResponse = receitaRepository.findById();
-//
-//        if(receitaResponse.isPresent()){
-//            HistoricoChat historicoChat = receitaResponse.get();
-//            List<Message> mensagens = historicoChat.getMensagens();
-//
-//            //pegando os dados da ultima mensagem
-//            String origemMensagem = mensagens.getLast().getOrigem();
-//            Integer index = mensagens.getLast().getIndex();
-//
-//            String novaOrigem = origemMensagem.equals("IA") ? "User" : "IA";
-//
-//            //Nova mensagem
-//            Message mensagem = new Message(index+1, message, LocalDate.now(), novaOrigem);
-//            mensagens.add(mensagem);
-//            historicoChat.setMensagens(mensagens);
-//            receitaRepository.save(historicoChat);
-//            return "inserido";
-//        }
-//        return "nao foi inserido";
-//    }
+    @Transactional
+    public void atualizarReceita(String id, ReceitaRequestDTO receitaRequestDTO) {
+        Receita receita = this.getById(id);
+        BeanUtils.copyProperties(receitaRequestDTO, receita);
 
-    public Receita inserirReceita(Receita receita){
-        Receita receitaResponse = receitaRepository.save(receita);
-        return receitaResponse;
+        receitaRepository.save(receita);
     }
-
-    public Receita delete(String id) {
-        Optional<Receita> receitaResponse = receitaRepository.findById(id);
-        Receita receita = receitaResponse.get();
-        receitaRepository.delete(receita);
-        return receita;
-    }
-//
-//    public ResponseEntity<Receita> updateReceita(String id, Receita receita){ //alterar receita
-//
-//    }
 }

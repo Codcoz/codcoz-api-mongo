@@ -1,9 +1,9 @@
 package org.example.mongocrud.repository;
 
-import org.example.mongocrud.model.receita.Receita;
+import org.example.mongocrud.model.cardapio.Cardapio;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ReceitaRepository extends MongoRepository<Receita, String> {
+public interface CardapioRepository extends MongoRepository<Cardapio, String> {
 }

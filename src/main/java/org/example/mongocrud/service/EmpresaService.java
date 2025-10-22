@@ -1,6 +1,7 @@
-package org.example.mongocrud.service.empresa;
+package org.example.mongocrud.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.example.mongocrud.dto.empresa.EmpresaRequestDTO;
 import org.example.mongocrud.dto.empresa.EmpresaResponseDTO;
@@ -20,7 +21,7 @@ public class EmpresaService {
 
     private Empresa getById(String id) {
         return empresaRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Empresa não encontrada")); //não to achando a EntityNotFoundException
+                .orElseThrow(() -> new EntityNotFoundException("Empresa não encontrada"));
     }
 
     public EmpresaResponseDTO buscarEmpresa(String id){
@@ -37,12 +38,6 @@ public class EmpresaService {
         return objectMapper.convertValue(empresaRepository.save(empresa), EmpresaResponseDTO.class);
     }
 
-//    @Transactional
-//    public void excluirEmpresa(String id) {
-//        Empresa empresa = this.getById(id);
-//        empresaRepository.delete(empresa);
-//    }
-
     @Transactional
     public void atualizarEmpresa(String id, EmpresaRequestDTO empresaRequestDTO) {
         Empresa empresa = this.getById(id);
@@ -50,19 +45,4 @@ public class EmpresaService {
 
         empresaRepository.save(empresa);
     }
-
-//    @Transactional
-//    public void alterarEmpresa(String id, EmpresaRequestDTO empresaRequestDTO) { //não acho que esse patch será utilizado
-//        Empresa empresa = this.getById(id);
-//
-//        if (empresaRequestDTO.getNome() != null) {
-//            empresa.setNome(empresaRequestDTO.getNome());
-//        }
-//        if (empresaRequestDTO.getSigla() != null) {
-//            empresa.setSigla(empresaRequestDTO.getSigla());
-//        }
-////        BeanUtils.copyProperties(produtoModel, p);
-//        empresaRepository.save(empresa);
-//    }
-
 }
