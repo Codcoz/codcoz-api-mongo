@@ -10,6 +10,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -19,8 +20,15 @@ import java.time.LocalDateTime;
 public class Cardapio {
     @Id
     private String id;
+    @JsonProperty("nome_cardapio")
+    private String nomeCardapio;
+    private String periodicidade;
+    @JsonProperty("data_inicio")
     private LocalDate dataInicio;
+    @JsonProperty("data_fim")
     private LocalDate dataFim;
-    private Integer empresaId;
-    private CardapioSemanal cardapioSemanal;
+    @JsonProperty("empresa_id")
+    private String empresaId;
+    @JsonProperty("cardapio_semanal")
+    private List<CardapioDiario> dias;
 }

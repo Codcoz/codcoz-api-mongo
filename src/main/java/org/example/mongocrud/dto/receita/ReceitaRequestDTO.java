@@ -1,5 +1,6 @@
 package org.example.mongocrud.dto.receita;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 import org.example.mongocrud.model.receita.IngredienteReceita;

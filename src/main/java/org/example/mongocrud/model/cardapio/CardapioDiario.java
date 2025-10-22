@@ -6,16 +6,18 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import java.util.List;
+import java.time.LocalDate;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
 public class CardapioDiario {
+    private String diaSemana;
+    private LocalDate data;
     @JsonProperty("lanche_manha")
-    private List<Lanche> lancheManha; //optei por criar uma classe Lanche para ser mais extensível
-    private List<Lanche> almoco;
+    private Lanche lancheManha; //optei por criar uma classe Lanche para ser mais extensível
+    private Almoco almoco;
     @JsonProperty("lanche_tarde")
-    private List<Lanche> lancheTarde;
+    private Lanche lancheTarde;
 }

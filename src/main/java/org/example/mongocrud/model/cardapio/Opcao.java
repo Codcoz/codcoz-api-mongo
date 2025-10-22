@@ -6,15 +6,14 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import java.util.List;
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class Lanche {
-    private List<Opcao> opcoes;
-    @JsonProperty("opcoes_fixas")
-    private Opcao opcoesFixas;
-    private Fruta fruta;
+public class Opcao {
+    private Integer prioridade;
+    @JsonProperty("receita_id")
+    private String receitaId;
+    @JsonProperty("ingrediente_id")
+    private String ingredienteId;
 }
