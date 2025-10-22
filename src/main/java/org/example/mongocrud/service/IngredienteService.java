@@ -1,10 +1,10 @@
 package org.example.mongocrud.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.example.mongocrud.dto.ingrediente.IngredienteRequestDTO;
 import org.example.mongocrud.dto.ingrediente.IngredienteResponseDTO;
+import org.example.mongocrud.exception.EntityNotFoundException;
 import org.example.mongocrud.model.ingrediente.Ingrediente;
 import org.example.mongocrud.repository.IngredienteRepository;
 import org.springframework.beans.BeanUtils;

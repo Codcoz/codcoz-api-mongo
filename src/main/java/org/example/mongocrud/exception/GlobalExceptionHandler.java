@@ -1,7 +1,6 @@
 package org.example.mongocrud.exception;
 
 import jakarta.validation.ConstraintViolationException;
-import jakarta.persistence.EntityNotFoundException;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;

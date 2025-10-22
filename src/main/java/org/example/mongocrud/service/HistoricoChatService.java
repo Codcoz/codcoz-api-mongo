@@ -1,10 +1,10 @@
 package org.example.mongocrud.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.example.mongocrud.dto.historico.HistoricoChatRequestDTO;
 import org.example.mongocrud.dto.historico.HistoricoChatResponseDTO;
+import org.example.mongocrud.exception.EntityNotFoundException;
 import org.example.mongocrud.model.historico.HistoricoChat;
 import org.example.mongocrud.repository.HistoricoChatRepository;
 import org.springframework.stereotype.Service;
