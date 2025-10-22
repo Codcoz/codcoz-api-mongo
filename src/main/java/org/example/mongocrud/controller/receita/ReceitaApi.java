@@ -29,8 +29,8 @@ public interface ReceitaApi {
             @ApiResponse(responseCode = "200", description = "Recipe successfully returned"),
             @ApiResponse(responseCode = "404", description = "Recipe id not found"),
     })
-    @GetMapping("/{ingredientId}")
-    ResponseEntity<ReceitaResponseDTO> getRecipe(@PathVariable String ingredientId);
+    @GetMapping("/{recipeId}")
+    ResponseEntity<ReceitaResponseDTO> getRecipe(@PathVariable String recipeId);
 
     @Operation(summary = "List all recipes")
     @ApiResponses({
