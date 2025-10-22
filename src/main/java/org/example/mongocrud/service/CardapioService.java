@@ -1,10 +1,10 @@
 package org.example.mongocrud.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.example.mongocrud.dto.cardapio.CardapioRequestDTO;
 import org.example.mongocrud.dto.cardapio.CardapioResponseDTO;
+import org.example.mongocrud.exception.EntityNotFoundException;
 import org.example.mongocrud.model.cardapio.Cardapio;
 import org.example.mongocrud.repository.CardapioRepository;
 import org.springframework.beans.BeanUtils;
