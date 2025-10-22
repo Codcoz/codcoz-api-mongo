@@ -1,6 +1,7 @@
 package org.example.mongocrud.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.example.mongocrud.dto.ingrediente.IngredienteRequestDTO;
 import org.example.mongocrud.dto.ingrediente.IngredienteResponseDTO;
@@ -20,7 +21,7 @@ public class IngredienteService {
 
     private Ingrediente getById(String id) {
         return ingredienteRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Ingrediente não encontrado")); //não to achando a EntityNotFoundException
+                .orElseThrow(() -> new EntityNotFoundException("Ingrediente não encontrado"));
     }
 
     public List<IngredienteResponseDTO> listarIngredientes() {

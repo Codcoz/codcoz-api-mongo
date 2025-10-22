@@ -1,6 +1,7 @@
 package org.example.mongocrud.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.example.mongocrud.dto.receita.ReceitaRequestDTO;
 import org.example.mongocrud.dto.receita.ReceitaResponseDTO;
@@ -20,7 +21,7 @@ public class ReceitaService {
 
     private Receita getById(String id) {
         return receitaRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Receita não encontrada")); //não to achando a EntityNotFoundException
+                .orElseThrow(() -> new EntityNotFoundException("Receita não encontrada"));
     }
 
     @Transactional

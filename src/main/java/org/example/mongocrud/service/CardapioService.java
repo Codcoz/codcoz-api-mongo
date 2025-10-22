@@ -1,6 +1,7 @@
 package org.example.mongocrud.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.example.mongocrud.dto.cardapio.CardapioRequestDTO;
 import org.example.mongocrud.dto.cardapio.CardapioResponseDTO;
@@ -20,7 +21,7 @@ public class CardapioService {
 
     private Cardapio getById(String id) {
         return cardapioRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Cardápio não encontrado"));
+                .orElseThrow(() -> new EntityNotFoundException("Cardápio não encontrado"));
     }
 
     @Transactional
