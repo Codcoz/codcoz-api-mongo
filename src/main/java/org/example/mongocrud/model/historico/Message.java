@@ -1,6 +1,7 @@
 package org.example.mongocrud.model.historico;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,7 +19,7 @@ import java.time.LocalDateTime;
 public class Message {
     private Integer index;
     private String mensagem;
-    @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
+    @JsonProperty("data_hora")
     private LocalDateTime dataHora;
     private String origem;;
 }
