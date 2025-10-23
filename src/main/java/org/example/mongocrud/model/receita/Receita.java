@@ -21,6 +21,7 @@ import java.util.List;
 public class Receita {
     @Id
     private String id;
+    private String empresaId;
     private String nome;
     private String descricao;
     @JsonProperty("url_imagem")

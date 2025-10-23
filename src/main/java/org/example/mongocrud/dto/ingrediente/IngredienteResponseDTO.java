@@ -11,6 +11,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Builder
 public class IngredienteResponseDTO {
     private String id;
+    private String empresaId;
     private String categoria;
     private String nome;
     private String descricao;

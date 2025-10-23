@@ -24,8 +24,8 @@ public class IngredienteService {
                 .orElseThrow(() -> new EntityNotFoundException("Ingrediente não encontrado"));
     }
 
-    public List<IngredienteResponseDTO> listarIngredientes() {
-        return ingredienteRepository.findAll().stream().map(e -> objectMapper.convertValue(e, IngredienteResponseDTO.class)).toList();
+    public List<IngredienteResponseDTO> listarIngredientes(String empresaId) {
+        return ingredienteRepository.findByEmpresaIdOrWithoutEmpresaId(empresaId).stream().map(e -> objectMapper.convertValue(e, IngredienteResponseDTO.class)).toList();
     }
 
     public IngredienteResponseDTO buscarIngrediente(String chatId) {

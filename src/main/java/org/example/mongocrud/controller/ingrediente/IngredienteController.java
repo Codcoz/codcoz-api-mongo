@@ -12,31 +12,31 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("api/v1/ingrediente")
+@RequestMapping("api/v1/empresa/{empresaId}/ingrediente")
 public class IngredienteController implements IngredienteApi {
     private final IngredienteService ingredienteService;
 
     @Override
-    public ResponseEntity<IngredienteResponseDTO> create(IngredienteRequestDTO request) {
+    public ResponseEntity<IngredienteResponseDTO> create(String empresaId, IngredienteRequestDTO request) {
         IngredienteResponseDTO ingrediente = ingredienteService.salvarIngrediente(request);
         return ResponseEntity.ok(ingrediente);
     }
 
     @Override
-    public ResponseEntity<IngredienteResponseDTO> getIngredient(String id) {
-        IngredienteResponseDTO ingrediente = ingredienteService.buscarIngrediente(id);
+    public ResponseEntity<IngredienteResponseDTO> getIngredient(String empresaId, String ingredienteId) {
+        IngredienteResponseDTO ingrediente = ingredienteService.buscarIngrediente(ingredienteId);
         return ResponseEntity.ok(ingrediente);
     }
 
     @Override
-    public ResponseEntity<List<IngredienteResponseDTO>> getAllIngredients() {
-        List<IngredienteResponseDTO> ingredientes = ingredienteService.listarIngredientes();
+    public ResponseEntity<List<IngredienteResponseDTO>> getAllIngredients(String empresaId) {
+        List<IngredienteResponseDTO> ingredientes = ingredienteService.listarIngredientes(empresaId);
         return ResponseEntity.ok(ingredientes);
     }
 
     @Override
-    public ResponseEntity<String> updateIngredient(String id, IngredienteRequestDTO ingredienteRequestDTO) {
-        ingredienteService.atualizarIngrediente(id, ingredienteRequestDTO);
+    public ResponseEntity<String> updateIngredient(String empresaId, String ingredienteId, IngredienteRequestDTO ingredienteRequestDTO) {
+        ingredienteService.atualizarIngrediente(ingredienteId, ingredienteRequestDTO);
         return ResponseEntity.ok("Ingrediente alterado com sucesso");
     }
 }
