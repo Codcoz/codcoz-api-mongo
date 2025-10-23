@@ -42,7 +42,7 @@ public class CardapioService {
         return objectMapper.convertValue(getById(id), CardapioResponseDTO.class);
     }
 
-    public List<CardapioResponseDTO> listarCardapios() {
-        return cardapioRepository.findAll().stream().map(e -> objectMapper.convertValue(e, CardapioResponseDTO.class)).toList();
+    public List<CardapioResponseDTO> listarCardapios(String empresaId) {
+        return cardapioRepository.findAllByEmpresaId(empresaId).stream().map(e -> objectMapper.convertValue(e, CardapioResponseDTO.class)).toList();
     }
 }

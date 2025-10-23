@@ -22,7 +22,7 @@ public interface ReceitaApi {
             @ApiResponse(responseCode = "400", description = "Invalid data provided")
     })
     @PostMapping
-    ResponseEntity<ReceitaResponseDTO> create(@Validated({OnCreate.class, Default.class}) @RequestBody ReceitaRequestDTO request);
+    ResponseEntity<ReceitaResponseDTO> create(@PathVariable String empresaId, @Validated({OnCreate.class, Default.class}) @RequestBody ReceitaRequestDTO request);
 
     @Operation(summary = "Get a specific recipe")
     @ApiResponses({
@@ -30,20 +30,20 @@ public interface ReceitaApi {
             @ApiResponse(responseCode = "404", description = "Recipe id not found"),
     })
     @GetMapping("/{recipeId}")
-    ResponseEntity<ReceitaResponseDTO> getRecipe(@PathVariable String recipeId);
+    ResponseEntity<ReceitaResponseDTO> getRecipe(@PathVariable String empresaId, @PathVariable String recipeId);
 
     @Operation(summary = "List all recipes")
     @ApiResponses({
             @ApiResponse(responseCode = "200", description = "All recipes returned successfully")
     })
-    @GetMapping()
-    ResponseEntity<List<ReceitaResponseDTO>> getAllRecipes();
+    @GetMapping
+    ResponseEntity<List<ReceitaResponseDTO>> getAllRecipes(@PathVariable String empresaId);
 
     @Operation(summary = "Update a recipe")
     @ApiResponses({
             @ApiResponse(responseCode = "201", description = "Recipe successfully updated!"),
             @ApiResponse(responseCode = "400", description = "Invalid data provided")
     })
-    @PutMapping("/{id}")
-    ResponseEntity<String> updateRecipe(@PathVariable String id, @Validated(OnCreate.class) @RequestBody ReceitaRequestDTO receitaRequestDTO);
+    @PutMapping("/{recipeId}")
+    ResponseEntity<String> updateRecipe(@PathVariable String empresaId, @PathVariable String recipeId, @Validated(OnCreate.class) @RequestBody ReceitaRequestDTO receitaRequestDTO);
 }

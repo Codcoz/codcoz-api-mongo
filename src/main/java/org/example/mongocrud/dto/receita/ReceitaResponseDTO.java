@@ -16,6 +16,7 @@ import java.util.List;
 public class ReceitaResponseDTO {
     private String id;
     private String nome;
+    private String empresaId;
     private String descricao;
     private String urlImagem;
     private List<IngredienteReceita> ingredientes;
