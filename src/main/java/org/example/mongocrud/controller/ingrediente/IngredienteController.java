@@ -17,25 +17,25 @@ public class IngredienteController implements IngredienteApi {
     private final IngredienteService ingredienteService;
 
     @Override
-    public ResponseEntity<IngredienteResponseDTO> create(String empresaId, IngredienteRequestDTO request) {
+    public ResponseEntity<IngredienteResponseDTO> create(Long empresaId, IngredienteRequestDTO request) {
         IngredienteResponseDTO ingrediente = ingredienteService.salvarIngrediente(request);
         return ResponseEntity.ok(ingrediente);
     }
 
     @Override
-    public ResponseEntity<IngredienteResponseDTO> getIngredient(String empresaId, String ingredienteId) {
+    public ResponseEntity<IngredienteResponseDTO> getIngredient(Long empresaId, String ingredienteId) {
         IngredienteResponseDTO ingrediente = ingredienteService.buscarIngrediente(ingredienteId);
         return ResponseEntity.ok(ingrediente);
     }
 
     @Override
-    public ResponseEntity<List<IngredienteResponseDTO>> getAllIngredients(String empresaId) {
+    public ResponseEntity<List<IngredienteResponseDTO>> getAllIngredients(Long empresaId) {
         List<IngredienteResponseDTO> ingredientes = ingredienteService.listarIngredientes(empresaId);
         return ResponseEntity.ok(ingredientes);
     }
 
     @Override
-    public ResponseEntity<String> updateIngredient(String empresaId, String ingredienteId, IngredienteRequestDTO ingredienteRequestDTO) {
+    public ResponseEntity<String> updateIngredient(Long empresaId, String ingredienteId, IngredienteRequestDTO ingredienteRequestDTO) {
         ingredienteService.atualizarIngrediente(ingredienteId, ingredienteRequestDTO);
         return ResponseEntity.ok("Ingrediente alterado com sucesso");
     }

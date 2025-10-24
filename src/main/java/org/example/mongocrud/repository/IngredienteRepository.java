@@ -11,5 +11,5 @@ import java.util.List;
 @Repository
 public interface IngredienteRepository extends MongoRepository<Ingrediente,String> {
     @Query("{ '$or': [ { 'empresaId': ?0 }, { 'empresaId': { '$exists': false } } ] }")
-    List<Receita> findByEmpresaIdOrWithoutEmpresaId(String empresaId);
+    List<Receita> findByEmpresaIdOrWithoutEmpresaId(Long empresaId);
 }

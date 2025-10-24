@@ -9,5 +9,5 @@ import java.util.List;
 
 @Repository
 public interface CardapioRepository extends MongoRepository<Cardapio, String> {
-    List<Cardapio> findAllByEmpresaId(String empresaId);
+    List<Cardapio> findAllByEmpresaId(Long empresaId);
 }
