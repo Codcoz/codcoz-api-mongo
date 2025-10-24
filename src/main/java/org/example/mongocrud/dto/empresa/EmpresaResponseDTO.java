@@ -12,7 +12,7 @@ import org.springframework.data.annotation.Id;
 @Data
 @ToString
 public class EmpresaResponseDTO {
-    private String id;
+    private Long id;
     private String nome;
     private String sigla;
     private String status;

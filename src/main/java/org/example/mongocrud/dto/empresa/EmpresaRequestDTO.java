@@ -14,6 +14,7 @@ import org.example.mongocrud.validation.OnCreate;
 @ToString
 @Builder
 public class EmpresaRequestDTO {
+    private Long id; //é necessário ter ID porque este será inserido manualmente como inteiro
     @NotBlank(message = "O campo 'nome' é obrigatório", groups = OnCreate.class)
     private String nome;
     @NotBlank(message = "O campo 'sigla' é obrigatório", groups = OnCreate.class)

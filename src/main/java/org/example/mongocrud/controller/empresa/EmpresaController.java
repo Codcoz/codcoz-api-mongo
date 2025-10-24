@@ -24,7 +24,7 @@ public class EmpresaController implements EmpresaApi{
     }
 
     @Override
-    public ResponseEntity<EmpresaResponseDTO> getEnterprise(@PathVariable String id){
+    public ResponseEntity<EmpresaResponseDTO> getEnterprise(@PathVariable Long id){
         EmpresaResponseDTO empresa = empresaService.buscarEmpresa(id);
         return ResponseEntity.ok(empresa);
     }
@@ -36,7 +36,7 @@ public class EmpresaController implements EmpresaApi{
     }
 
     @Override
-    public ResponseEntity<String> updateEnterprise(@PathVariable String id, @Validated(OnCreate.class) @RequestBody EmpresaRequestDTO empresaRequestDTO){
+    public ResponseEntity<String> updateEnterprise(@PathVariable Long id, @Validated(OnCreate.class) @RequestBody EmpresaRequestDTO empresaRequestDTO){
         empresaService.atualizarEmpresa(id, empresaRequestDTO);
         return ResponseEntity.ok("Empresa alterada com sucesso");
     }

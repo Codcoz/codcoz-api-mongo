@@ -19,12 +19,12 @@ public class EmpresaService {
     private final EmpresaRepository empresaRepository;
     private final ObjectMapper objectMapper;
 
-    private Empresa getById(String id) {
+    private Empresa getById(Long id) {
         return empresaRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Empresa não encontrada"));
     }
 
-    public EmpresaResponseDTO buscarEmpresa(String id){
+    public EmpresaResponseDTO buscarEmpresa(Long id){
         return objectMapper.convertValue(getById(id), EmpresaResponseDTO.class);
     }
 
@@ -39,7 +39,7 @@ public class EmpresaService {
     }
 
     @Transactional
-    public void atualizarEmpresa(String id, EmpresaRequestDTO empresaRequestDTO) {
+    public void atualizarEmpresa(Long id, EmpresaRequestDTO empresaRequestDTO) {
         Empresa empresa = this.getById(id);
         BeanUtils.copyProperties(empresaRequestDTO, empresa);
 

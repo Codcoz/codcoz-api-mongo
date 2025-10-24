@@ -18,25 +18,25 @@ public class CardapioController implements CardapioApi{
     private final CardapioService cardapioService;
 
     @Override
-    public ResponseEntity<List<CardapioResponseDTO>> getAllMenus(String empresaId) {
+    public ResponseEntity<List<CardapioResponseDTO>> getAllMenus(Long empresaId) {
         List<CardapioResponseDTO> cardapios = cardapioService.listarCardapios(empresaId);
         return ResponseEntity.ok(cardapios);
     }
 
     @Override
-    public ResponseEntity<CardapioResponseDTO> getMenu(String empresaId, String id) {
+    public ResponseEntity<CardapioResponseDTO> getMenu(Long empresaId, String id) {
         CardapioResponseDTO cardapio = cardapioService.buscarCardapio(id);
         return ResponseEntity.ok(cardapio);
     }
 
     @Override
-    public ResponseEntity<CardapioResponseDTO> create(String empresaId, CardapioRequestDTO request) {
+    public ResponseEntity<CardapioResponseDTO> create(Long empresaId, CardapioRequestDTO request) {
         CardapioResponseDTO cardapio = cardapioService.salvarCardapio(request);
         return ResponseEntity.ok(cardapio);
     }
 
     @Override
-    public ResponseEntity<String> updateMenu(String empresaId, String id, CardapioRequestDTO request) {
+    public ResponseEntity<String> updateMenu(Long empresaId, String id, CardapioRequestDTO request) {
         cardapioService.atualizarCardapio(id, request);
         return ResponseEntity.ok("Cardápio alterado com sucesso");
     }

@@ -20,7 +20,7 @@ public interface CardapioApi {
             @ApiResponse(responseCode = "200", description = "All menus returned successfully")
     })
     @GetMapping
-    ResponseEntity<List<CardapioResponseDTO>> getAllMenus(@PathVariable String empresaId);
+    ResponseEntity<List<CardapioResponseDTO>> getAllMenus(@PathVariable Long empresaId);
 
     @Operation(summary = "Get a specific menu")
     @ApiResponses({
@@ -28,7 +28,7 @@ public interface CardapioApi {
             @ApiResponse(responseCode = "404", description = "Menu id not found"),
     })
     @GetMapping("/{cardapioId}")
-    ResponseEntity<CardapioResponseDTO> getMenu(@PathVariable String empresaId, @PathVariable String cardapioId);
+    ResponseEntity<CardapioResponseDTO> getMenu(@PathVariable Long empresaId, @PathVariable String cardapioId);
 
     @Operation(summary = "Save a new menu")
     @ApiResponses({
@@ -36,7 +36,7 @@ public interface CardapioApi {
             @ApiResponse(responseCode = "400", description = "Invalid data provided")
     })
     @PostMapping
-    ResponseEntity<CardapioResponseDTO> create(@PathVariable String empresaId, @Validated(OnCreate.class) @RequestBody CardapioRequestDTO request);
+    ResponseEntity<CardapioResponseDTO> create(@PathVariable Long empresaId, @Validated(OnCreate.class) @RequestBody CardapioRequestDTO request);
 
     @Operation(summary = "Update a menu")
     @ApiResponses({
@@ -44,5 +44,5 @@ public interface CardapioApi {
             @ApiResponse(responseCode = "400", description = "Invalid data provided")
     })
     @PutMapping("/{cardapioId}")
-    ResponseEntity<String> updateMenu(@PathVariable String empresaId, @PathVariable String cardapioId, @Validated(OnCreate.class) @RequestBody CardapioRequestDTO request);
+    ResponseEntity<String> updateMenu(@PathVariable Long empresaId, @PathVariable String cardapioId, @Validated(OnCreate.class) @RequestBody CardapioRequestDTO request);
 }

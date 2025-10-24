@@ -28,7 +28,7 @@ public interface EmpresaApi {
             @ApiResponse(responseCode = "404", description = "Enterprise id not found"),
     })
     @GetMapping("/{id}")
-    ResponseEntity<EmpresaResponseDTO> getEnterprise(@PathVariable String id);
+    ResponseEntity<EmpresaResponseDTO> getEnterprise(@PathVariable Long id);
 
     @Operation(summary = "Save a new enterprise")
     @ApiResponses({
@@ -44,5 +44,5 @@ public interface EmpresaApi {
             @ApiResponse(responseCode = "400", description = "Invalid data provided")
     })
     @PutMapping("/{id}")
-    ResponseEntity<String> updateEnterprise(@PathVariable String id, @Validated(OnCreate.class) @RequestBody EmpresaRequestDTO empresaRequestDTO);
+    ResponseEntity<String> updateEnterprise(@PathVariable Long id, @Validated(OnCreate.class) @RequestBody EmpresaRequestDTO empresaRequestDTO);
 }
