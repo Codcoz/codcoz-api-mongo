@@ -20,7 +20,7 @@ public class CardapioResponseDTO {
     @JsonProperty("data_fim")
     private LocalDate dataFim;
     @JsonProperty("empresa_id")
-    private String empresaId;
+    private Long empresaId;
     @JsonProperty("cardapio_semanal")
     private List<CardapioDiario> dias;
 }
