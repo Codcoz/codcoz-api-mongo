@@ -16,6 +16,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Ingrediente {
     @Id
     private String id;
+    private Long empresaId;
     private String categoria;
     private String nome;
     private String descricao;
