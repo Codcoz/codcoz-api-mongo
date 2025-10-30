@@ -34,7 +34,7 @@ public class ReceitaService {
         return objectMapper.convertValue(getById(id), ReceitaResponseDTO.class);
     }
 
-    public List<ReceitaResponseDTO> listarReceitas(String empresaId) {
+    public List<ReceitaResponseDTO> listarReceitas(Long empresaId) {
         return receitaRepository.findByEmpresaId(empresaId).stream().map(e -> objectMapper.convertValue(e, ReceitaResponseDTO.class)).toList();
     }
 

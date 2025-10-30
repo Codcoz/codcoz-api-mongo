@@ -17,7 +17,7 @@ import java.util.List;
 public class ReceitaRequestDTO {
     private String nome;
     @JsonProperty("empresa_id")
-    private String empresaId;
+    private Long empresaId;
     private String descricao;
     @JsonProperty("url_imagem")
     private String urlImagem;
