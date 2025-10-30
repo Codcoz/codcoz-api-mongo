@@ -10,5 +10,5 @@ import java.util.List;
 
 @Repository
 public interface ReceitaRepository extends MongoRepository<Receita, String> {
-    List<Receita> findByEmpresaId(String empresaId);
+    List<Receita> findByEmpresaId(Long empresaId);
 }
