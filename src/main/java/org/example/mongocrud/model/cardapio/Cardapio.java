@@ -28,7 +28,7 @@ public class Cardapio {
     @JsonProperty("data_fim")
     private LocalDate dataFim;
     @JsonProperty("empresa_id")
-    private Long empresaId;
+    private String empresaId;
     @JsonProperty("cardapio_semanal")
     private List<CardapioDiario> dias;
 }
