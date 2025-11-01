@@ -1,11 +1,10 @@
 package org.example.mongocrud.dto.cardapio;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-import org.example.mongocrud.model.cardapio.CardapioDiario;
+import org.example.mongocrud.model.cardapio.CardapioSemanal;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDate;
@@ -22,5 +21,5 @@ public class CardapioRequestDTO {
     private LocalDate dataInicio;
     private LocalDate dataFim;
     private Long empresaId;
-    private List<CardapioDiario> dias;
+    private List<CardapioSemanal> cardapioSemanal;
 }
