@@ -41,4 +41,10 @@ public class IngredienteController implements IngredienteApi {
         ingredienteService.atualizarIngrediente(ingredienteId, ingredienteRequestDTO);
         return ResponseEntity.ok("Ingrediente alterado com sucesso");
     }
+
+    @Override
+    public ResponseEntity<String> deleteIngredient(Long empresaId, String ingredienteId) {
+        ingredienteService.deletarIngrediente(ingredienteId);
+        return ResponseEntity.ok("Ingrediente deletado com sucesso");
+    }
 }

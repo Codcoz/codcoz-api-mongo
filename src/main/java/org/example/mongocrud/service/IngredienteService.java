@@ -45,4 +45,8 @@ public class IngredienteService {
 
         ingredienteRepository.save(ingrediente);
     }
+
+    public void deletarIngrediente(String ingredienteId) {
+        ingredienteRepository.deleteById(ingredienteId);
+    }
 }
