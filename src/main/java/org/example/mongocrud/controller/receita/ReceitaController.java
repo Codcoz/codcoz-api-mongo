@@ -39,4 +39,10 @@ public class ReceitaController implements ReceitaApi {
         receitaService.atualizarReceita(recipeId, receitaRequestDTO);
         return ResponseEntity.ok("Receita alterada com sucesso");
     }
+
+    @Override
+    public ResponseEntity<String> deleteRecipe(Long empresaId, String recipeId) {
+        receitaService.deletarReceita(recipeId);
+        return ResponseEntity.ok("Receita deletada com sucesso");
+    }
 }
