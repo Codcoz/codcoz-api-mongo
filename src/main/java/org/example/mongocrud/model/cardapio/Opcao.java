@@ -12,8 +12,6 @@ import lombok.ToString;
 @ToString
 public class Opcao {
     private Integer prioridade;
-    @JsonProperty("receita_id")
     private String receitaId;
-    @JsonProperty("ingrediente_id")
     private String ingredienteId;
 }

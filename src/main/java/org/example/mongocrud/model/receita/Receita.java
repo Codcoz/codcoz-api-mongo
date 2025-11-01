@@ -24,16 +24,11 @@ public class Receita {
     private Long empresaId;
     private String nome;
     private String descricao;
-    @JsonProperty("url_imagem")
     private String urlImagem;
     private List<IngredienteReceita> ingredientes;
-    @JsonProperty("modo_preparo")
     private List<ModoPreparo> modoPreparo;
-    @JsonProperty("tempo_preparo_minutos")
     private Integer tempoPreparoMinutos;
-    @JsonProperty("tempo_cozimento_minutos")
     private Integer tempoCozimentoMinutos;
     private Integer porcoes;
-    @JsonProperty("data_criacao")
     private LocalDateTime dataCriacao;
 }

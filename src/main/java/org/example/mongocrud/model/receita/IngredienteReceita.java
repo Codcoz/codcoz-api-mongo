@@ -13,10 +13,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @AllArgsConstructor
 @Document
 public class IngredienteReceita {
-    @JsonProperty("receita_id")
-    private Integer ingredienteId;
+    private Integer receitaId;
     private String nome;
-    @JsonProperty("unidade_medida")
     private String unidadeMedida;
     private Integer quantidade;
 }

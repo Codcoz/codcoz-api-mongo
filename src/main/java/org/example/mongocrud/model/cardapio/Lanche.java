@@ -14,7 +14,6 @@ import java.util.List;
 @ToString
 public class Lanche {
     private List<Opcao> opcoes;
-    @JsonProperty("opcoes_fixas")
     private Opcao opcoesFixas;
     private Fruta fruta;
 }

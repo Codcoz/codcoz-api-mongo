@@ -15,12 +15,8 @@ import java.util.List;
 @Builder
 public class CardapioResponseDTO {
     private String id;
-    @JsonProperty("data_inicio")
     private LocalDate dataInicio;
-    @JsonProperty("data_fim")
     private LocalDate dataFim;
-    @JsonProperty("empresa_id")
     private Long empresaId;
-    @JsonProperty("cardapio_semanal")
     private List<CardapioDiario> dias;
 }

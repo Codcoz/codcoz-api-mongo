@@ -15,9 +15,7 @@ import java.time.LocalDate;
 public class CardapioDiario {
     private String diaSemana;
     private LocalDate data;
-    @JsonProperty("lanche_manha")
     private Lanche lancheManha; //optei por criar uma classe Lanche para ser mais extensível
     private Almoco almoco;
-    @JsonProperty("lanche_tarde")
     private Lanche lancheTarde;
 }

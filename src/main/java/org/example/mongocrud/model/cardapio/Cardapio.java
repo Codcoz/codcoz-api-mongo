@@ -20,15 +20,10 @@ import java.util.List;
 public class Cardapio {
     @Id
     private String id;
-    @JsonProperty("nome_cardapio")
     private String nomeCardapio;
     private String periodicidade;
-    @JsonProperty("data_inicio")
     private LocalDate dataInicio;
-    @JsonProperty("data_fim")
     private LocalDate dataFim;
-    @JsonProperty("empresa_id")
     private Long empresaId;
-    @JsonProperty("cardapio_semanal")
     private List<CardapioDiario> dias;
 }
