@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-
+@CrossOrigin(origins = "*")
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("api/v1/empresa/{empresaId}/receita")
@@ -23,8 +23,8 @@ public class ReceitaController implements ReceitaApi {
     }
 
     @Override
-    public ResponseEntity<ReceitaResponseDTO> getRecipe(Long empresaId, String id) {
-        ReceitaResponseDTO receita = receitaService.buscarReceita(id);
+    public ResponseEntity<ReceitaResponseDTO> getRecipe(Long empresaId, String recipeId) {
+        ReceitaResponseDTO receita = receitaService.buscarReceita(recipeId);
         return ResponseEntity.ok(receita);
     }
 
@@ -35,8 +35,8 @@ public class ReceitaController implements ReceitaApi {
     }
 
     @Override
-    public ResponseEntity<String> updateRecipe(Long empresaId, String id, ReceitaRequestDTO receitaRequestDTO) {
-        receitaService.atualizarReceita(id, receitaRequestDTO);
+    public ResponseEntity<String> updateRecipe(Long empresaId, String recipeId, ReceitaRequestDTO receitaRequestDTO) {
+        receitaService.atualizarReceita(recipeId, receitaRequestDTO);
         return ResponseEntity.ok("Receita alterada com sucesso");
     }
 }
