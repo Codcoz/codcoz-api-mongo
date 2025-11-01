@@ -5,12 +5,14 @@ import org.example.mongocrud.dto.cardapio.CardapioRequestDTO;
 import org.example.mongocrud.dto.cardapio.CardapioResponseDTO;
 import org.example.mongocrud.service.CardapioService;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+@CrossOrigin(origins = "*")
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("api/v1/empresa/{empresaId}/cardapio")
@@ -24,8 +26,8 @@ public class CardapioController implements CardapioApi{
     }
 
     @Override
-    public ResponseEntity<CardapioResponseDTO> getMenu(Long empresaId, String id) {
-        CardapioResponseDTO cardapio = cardapioService.buscarCardapio(id);
+    public ResponseEntity<CardapioResponseDTO> getMenu(Long empresaId, String cardapioId) {
+        CardapioResponseDTO cardapio = cardapioService.buscarCardapio(cardapioId);
         return ResponseEntity.ok(cardapio);
     }
 
@@ -36,8 +38,8 @@ public class CardapioController implements CardapioApi{
     }
 
     @Override
-    public ResponseEntity<String> updateMenu(Long empresaId, String id, CardapioRequestDTO request) {
-        cardapioService.atualizarCardapio(id, request);
+    public ResponseEntity<String> updateMenu(Long empresaId, String cardapioId, CardapioRequestDTO request) {
+        cardapioService.atualizarCardapio(cardapioId, request);
         return ResponseEntity.ok("Cardápio alterado com sucesso");
     }
 }
