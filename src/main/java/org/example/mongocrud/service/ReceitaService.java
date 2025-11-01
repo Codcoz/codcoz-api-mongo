@@ -6,6 +6,7 @@ import org.example.mongocrud.dto.receita.ReceitaRequestDTO;
 import org.example.mongocrud.dto.receita.ReceitaResponseDTO;
 import org.example.mongocrud.exception.EntityNotFoundException;
 import org.example.mongocrud.model.receita.Receita;
+import org.example.mongocrud.repository.CardapioRepository;
 import org.example.mongocrud.repository.ReceitaRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
@@ -18,6 +19,7 @@ import java.util.List;
 public class ReceitaService {
     private final ReceitaRepository receitaRepository;
     private final ObjectMapper objectMapper;
+    private final CardapioRepository cardapioRepository;
 
     private Receita getById(String id) {
         return receitaRepository.findById(id)
@@ -44,5 +46,9 @@ public class ReceitaService {
         BeanUtils.copyProperties(receitaRequestDTO, receita);
 
         receitaRepository.save(receita);
+    }
+
+    public void deletarReceita(String recipeId) {
+        cardapioRepository.deleteById(recipeId);
     }
 }

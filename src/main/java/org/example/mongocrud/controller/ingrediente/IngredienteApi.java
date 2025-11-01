@@ -47,4 +47,12 @@ public interface IngredienteApi {
     @PutMapping("/{ingredientId}")
     ResponseEntity<String> updateIngredient(@PathVariable Long empresaId, @PathVariable String ingredientId, @Validated(OnCreate.class) @RequestBody IngredienteRequestDTO ingredienteRequestDTO);
 
+    @Operation(summary = "Delete an ingredient")
+    @ApiResponses({
+            @ApiResponse(responseCode = "201", description = "Ingredient successfully deleted!"),
+            @ApiResponse(responseCode = "400", description = "Invalid data provided")
+    })
+    @DeleteMapping("/{ingredientId}")
+    ResponseEntity<String> deleteIngredient(@PathVariable Long empresaId, @PathVariable String ingredientId);
+
 }

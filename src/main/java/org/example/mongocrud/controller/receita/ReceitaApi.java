@@ -46,4 +46,12 @@ public interface ReceitaApi {
     })
     @PutMapping("/{recipeId}")
     ResponseEntity<String> updateRecipe(@PathVariable Long empresaId, @PathVariable String recipeId, @Validated(OnCreate.class) @RequestBody ReceitaRequestDTO receitaRequestDTO);
+
+    @Operation(summary = "Delete a recipe")
+    @ApiResponses({
+            @ApiResponse(responseCode = "201", description = "Recipe successfully deleted!"),
+            @ApiResponse(responseCode = "400", description = "Invalid data provided")
+    })
+    @DeleteMapping("/{recipeId}")
+    ResponseEntity<String> deleteRecipe(@PathVariable Long empresaId, @PathVariable String recipeId);
 }

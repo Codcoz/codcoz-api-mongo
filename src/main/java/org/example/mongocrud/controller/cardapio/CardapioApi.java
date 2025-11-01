@@ -45,4 +45,12 @@ public interface CardapioApi {
     })
     @PutMapping("/{cardapioId}")
     ResponseEntity<String> updateMenu(@PathVariable Long empresaId, @PathVariable String cardapioId, @Validated(OnCreate.class) @RequestBody CardapioRequestDTO request);
+
+    @Operation(summary = "Delete a menu")
+    @ApiResponses({
+            @ApiResponse(responseCode = "201", description = "Menu successfully deleted!"),
+            @ApiResponse(responseCode = "400", description = "Invalid data provided")
+    })
+    @DeleteMapping("/{cardapioId}")
+    ResponseEntity<String> deleteMenu(@PathVariable Long empresaId, @PathVariable String cardapioId);
 }

@@ -42,4 +42,10 @@ public class CardapioController implements CardapioApi{
         cardapioService.atualizarCardapio(cardapioId, request);
         return ResponseEntity.ok("Cardápio alterado com sucesso");
     }
+
+    @Override
+    public ResponseEntity<String> deleteMenu(Long empresaId, String cardapioId) {
+        cardapioService.deletarCardapio(cardapioId);
+        return ResponseEntity.ok("Cardápio deletado com sucesso");
+    }
 }

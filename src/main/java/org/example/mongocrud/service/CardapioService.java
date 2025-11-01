@@ -45,4 +45,8 @@ public class CardapioService {
     public List<CardapioResponseDTO> listarCardapios(Long empresaId) {
         return cardapioRepository.findByEmpresaId(empresaId).stream().map(e -> objectMapper.convertValue(e, CardapioResponseDTO.class)).toList();
     }
+
+    public void deletarCardapio(String cardapioId) {
+        cardapioRepository.deleteById(cardapioId);
+    }
 }
