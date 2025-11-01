@@ -11,6 +11,5 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 public class Fruta {
-    @JsonProperty("ingrediente_id")
     private String ingredienteId;
 }

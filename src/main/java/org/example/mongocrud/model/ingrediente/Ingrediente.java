@@ -20,6 +20,5 @@ public class Ingrediente {
     private String categoria;
     private String nome;
     private String descricao;
-    @JsonProperty("quantidade_minima")
     private Integer quantidadeMinima;
 }

@@ -18,26 +18,3 @@ public class HistoricoChat {
     private String tipo;
     private List<Message> mensagens;
 }
-
-
-/*
-
-History Collection
-
-_id: 507f1f77bcf86cd799439011,
-type:"App",
-messages:[
-    {
-        index:0,
-        message: "Olá",
-        date: 11-09-2001,
-        from: "user"
-    },
-    {
-        index:1,
-        message:"Olá, como posso ajudar?",
-        date: 11-09-2002,
-        from: "IA"
-    }
-]
-*/

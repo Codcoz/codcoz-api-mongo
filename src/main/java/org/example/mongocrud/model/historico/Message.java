@@ -19,7 +19,6 @@ import java.time.LocalDateTime;
 public class Message {
     private Integer index;
     private String mensagem;
-    @JsonProperty("data_hora")
     private LocalDateTime dataHora;
     private String origem;;
 }

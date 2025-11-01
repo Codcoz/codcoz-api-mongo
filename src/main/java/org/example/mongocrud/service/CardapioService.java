@@ -43,6 +43,6 @@ public class CardapioService {
     }
 
     public List<CardapioResponseDTO> listarCardapios(Long empresaId) {
-        return cardapioRepository.findAllByEmpresaId(empresaId).stream().map(e -> objectMapper.convertValue(e, CardapioResponseDTO.class)).toList();
+        return cardapioRepository.findByEmpresaId(empresaId).stream().map(e -> objectMapper.convertValue(e, CardapioResponseDTO.class)).toList();
     }
 }

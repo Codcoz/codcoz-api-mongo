@@ -10,10 +10,8 @@ import lombok.*;
 @Builder
 public class IngredienteRequestDTO {
     private String categoria;
-    @JsonProperty("empresa_id")
     private Long empresaId;
     private String nome;
     private String descricao;
-    @JsonProperty("quantidade_minima")
     private Integer quantidadeMinima;
 }
