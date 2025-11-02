@@ -2,47 +2,27 @@ name: CI/CD -> Render
 
 on:
   push:
+    branches: [ main ]
   workflow_dispatch:
 
 jobs:
-  trigger-deploy:
+  deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+      - name: Checkout (not strictly required but handy)
+        uses: actions/checkout@v4
 
-      - name: Show GitHub context
+      - name: Trigger Render deploy hook
+        env:
+          RENDER_HOOK: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
+          REF: ${{ github.sha }}
         run: |
-          echo "GITHUB_SHA = ${{ github.sha }}"
-          echo "GITHUB_REF = ${{ github.ref }}"
-          echo "GITHUB_REF_NAME = ${{ github.ref_name }}"
-          git --version || true
-
-      - name: Debug Render hook (verbose)
-        run: |
-          set -o pipefail
-          url="${{ secrets.RENDER_DEPLOY_HOOK_URL }}?ref=${{ github.sha }}"
-          echo "Calling: $url"
-          # -i inclui cabeçalhos, -s silêncio progress, -S mostra erros, -o grava body
-          curl -i -s -S -X POST "$url" -o /tmp/render_resp -w "\nHTTP_CODE:%{http_code}\n" || true
-          echo "---- response body ----"
-          sed -n '1,200p' /tmp/render_resp || true
-          echo "---- end body ----"
-          cat /tmp/render_resp | sed -n '1,200p' || true
-          # falha se não for 2xx
-          http_code=$(tail -n1 /tmp/render_resp | sed -n '$p' | grep -oE 'HTTP_CODE:[0-9]+' | sed 's/HTTP_CODE://') || true
-          # alternativa: pega último HTTP_CODE do curl -w
-          if [ -z "$http_code" ]; then
-            echo "Não foi possível ler http_code. Verifique a resposta acima."
-          else
-            echo "HTTP status: $http_code"
-            if [ "$http_code" != "200" ] && [ "$http_code" != "201" ] && [ "$http_code" != "202" ]; then
-              echo "Resposta não 2xx — confira a URL guardada no secret."
-              exit 1
-            fi
+          if [ -z "$RENDER_HOOK" ]; then
+            echo "Secret RENDER_DEPLOY_HOOK_URL is not set"
+            exit 1
           fi
 
-      - name: Trigger Render deploy (deploy hook)
-        if: success()
-        run: |
-          curl -i -X POST "${{ secrets.RENDER_DEPLOY_HOOK_URL }}?ref=${{ github.sha }}"
+          url="${RENDER_HOOK}?ref=${REF}"
+          echo "Calling: $url"
+
+          curl --fail -sS -i -X POST "$url"
