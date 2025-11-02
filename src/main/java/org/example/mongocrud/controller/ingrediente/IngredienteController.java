@@ -25,8 +25,8 @@ public class IngredienteController implements IngredienteApi {
     }
 
     @Override
-    public ResponseEntity<IngredienteResponseDTO> getIngredient(Long empresaId, String ingredienteId) {
-        IngredienteResponseDTO ingrediente = ingredienteService.buscarIngrediente(ingredienteId);
+    public ResponseEntity<IngredienteResponseDTO> getIngredient(Long empresaId, String ingredientId) {
+        IngredienteResponseDTO ingrediente = ingredienteService.buscarIngrediente(ingredientId);
         return ResponseEntity.ok(ingrediente);
     }
 
@@ -37,14 +37,14 @@ public class IngredienteController implements IngredienteApi {
     }
 
     @Override
-    public ResponseEntity<String> updateIngredient(Long empresaId, String ingredienteId, IngredienteRequestDTO ingredienteRequestDTO) {
-        ingredienteService.atualizarIngrediente(ingredienteId, ingredienteRequestDTO);
+    public ResponseEntity<String> updateIngredient(Long empresaId, String ingredientId, IngredienteRequestDTO ingredienteRequestDTO) {
+        ingredienteService.atualizarIngrediente(ingredientId, ingredienteRequestDTO);
         return ResponseEntity.ok("Ingrediente alterado com sucesso");
     }
 
     @Override
-    public ResponseEntity<String> deleteIngredient(Long empresaId, String ingredienteId) {
-        ingredienteService.deletarIngrediente(ingredienteId);
+    public ResponseEntity<String> deleteIngredient(Long empresaId, String ingredientId) {
+        ingredienteService.deletarIngrediente(ingredientId);
         return ResponseEntity.ok("Ingrediente deletado com sucesso");
     }
 }
