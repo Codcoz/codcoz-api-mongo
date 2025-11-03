@@ -11,16 +11,17 @@ A API integra-se com:
 
 ## Tecnologias
 
-- Java 21  
-- Spring Boot 3  
-- Spring Web  
-- Spring Data JPA  
-- Spring Boot Actuator (`/health`)  
-- Spring Validation (Jakarta Validation)  
-- SpringDoc OpenAPI (Swagger UI)  
-- Lombok  
-- Spring Dotenv  
-- Docker  
+-Java 21
+-Spring Boot 3
+-Spring Web: Para construir APIs REST.
+-Spring Data MongoDB: Para integração e persistência de dados com o MongoDB.
+-Spring Boot Actuator: Para monitoramento da aplicação (ex: endpoint /health).
+-Spring Validation: Para validação de dados de entrada.
+-Spring Session Data MongoDB: Para gerenciamento de sessões utilizando o MongoDB.
+-SpringDoc OpenAPI (Swagger UI): Para documentação automática da API.
+-Lombok: Para reduzir código boilerplate (getters, setters, etc.).
+-Spring Dotenv: Para carregar variáveis de ambiente de um arquivo .env.
+-Docker: Para containerização da aplicação.  
 
 ---
 
